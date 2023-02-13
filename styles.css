@@ -41,6 +41,9 @@ button {
     align-items: center;
     width: 640px;
     height: 640px;
+    box-shadow: -10px 9px 8px -7px rgba(61,40,23,0.72);
+    -webkit-box-shadow: -10px 9px 8px -7px rgba(61,40,23,0.72);
+    -moz-box-shadow: -10px 9px 8px -7px rgba(61,40,23,0.72);
 }
 
 .cell {
