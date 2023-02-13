@@ -22,7 +22,6 @@ header{
 main {
     margin-top: 3rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -46,6 +45,22 @@ button {
 
 .cell {
     background-color: rgb(245, 242, 239);
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.enabled {
+    background-color: rgb(202, 187, 164);
+}
+
+#colorpicker {
+    width: 100px;
+    height: 100px;
+    border-style: none;
+    background-color: transparent;
 }
 
 button:hover {
