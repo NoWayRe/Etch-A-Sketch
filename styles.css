@@ -52,8 +52,8 @@ button {
     gap: 2rem;
 }
 
-.enabled {
-    background-color: rgb(202, 187, 164);
+.erased, .enabled {
+    background-color: rgb(202, 187, 164);;
 }
 
 #colorpicker {

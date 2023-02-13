@@ -2,9 +2,11 @@ const container = document.querySelector(".container");
 const grid = document.querySelector(".grid");
 const clearButton = document.querySelector(".clear");
 const random = document.querySelector(".random");
+const erase = document.querySelector(".erase");
 let colorChoice = document.querySelector("#colorpicker").value;
-let cell = document.querySelector(".cell");
 let cellsNumber = document.querySelectorAll(".cell").length;
+
+// Checks mousedown event on the page. Used in order to draw in the canvas only if a mouse button is pressed.
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
@@ -16,6 +18,10 @@ gererateGrid(16);
 
 random.addEventListener("click", () => {
     random.classList.toggle("enabled");
+})
+
+erase.addEventListener("click", (e) => {
+    erase.classList.toggle("erased");
 })
 
 grid.addEventListener("click", () => {
@@ -60,18 +66,23 @@ function gererateGrid(num) {
 // Changes cell color as long as the right mouse button is pressed down within the grid.
 function changeCellColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return;
+// Eraser Mode
+    if (document.getElementsByClassName("erased").length === 1){
+        e.target.style.backgroundColor = "rgb(245, 242, 239)";
+    }
 // Random Mode
-    if (document.getElementsByClassName("enabled").length === 1){
+    else if (document.getElementsByClassName("enabled").length === 1) {
+        
         let randomR = Math.floor(Math.random() * 255);
         let randomB = Math.floor(Math.random() * 255);
         let randomG = Math.floor(Math.random() * 255);
         e.target.style.backgroundColor = `rgb(${randomR},${randomB},${randomG})`;
     }
+//Regular Drawing Mode
     else {
         colorChoice = document.querySelector("#colorpicker").value;
         e.target.style.backgroundColor = colorChoice;
     }
-    
 }
 
 
